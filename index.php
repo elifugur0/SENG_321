@@ -3,13 +3,13 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Giriş Yap - Otomatik Değerlendirme Sistemi</title>
+    <title>Log In - Automated Evaluation System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="login-container">
-    <h2 class="login-header">Sisteme Giriş</h2>
+    <h2 class="login-header">System Login</h2>
     
     <form action="login.php" method="POST">
         <div class="form-group">
@@ -20,11 +20,11 @@
             <input type="password" name="password" class="form-control" placeholder="Şifre" required>
         </div>
         
-        <button type="submit" class="btn-primary">Giriş Yap</button>
+        <button type="submit" class="btn-primary">Login</button>
     </form>
 
     <div class="footer-link">
-        Hesabın yok mu? <a href="register.php">Kayıt Ol</a>
+     Don't you have an account?<a href="register.php">Register</a>
     </div>
 </div>
 
