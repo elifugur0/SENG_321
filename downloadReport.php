@@ -2,16 +2,15 @@
 session_start();
 require_once 'config.php';
 
-// Security Check: Is user logged in?
+
 if (!isset($_SESSION['user_id'])) { die("You must be logged in."); }
 
-// Check: Is resultID provided?
+
 if (!isset($_GET['resultID'])) { die("Report not found."); }
 
 $resultID = $_GET['resultID'];
 $studentID = $_SESSION['user_id'];
 
-// Fetch exam details and result from database
 $sql = "SELECT r.*, e.subject, e.exam_date, u.name as StudentName 
         FROM results r 
         JOIN exams e ON r.examID = e.examID 
@@ -24,8 +23,7 @@ $report = $stmt->fetch();
 
 if (!$report) { die("Report not found or access denied."); }
 
-// --- WORD DOWNLOAD SETTINGS ---
-// Filename is now in English
+
 $filename = "Exam_Result_" . str_replace(' ', '_', $report['subject']) . ".doc";
 
 header("Content-Type: application/vnd.ms-word");
@@ -33,8 +31,7 @@ header("Expires: 0");
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header("content-disposition: attachment;filename=$filename");
 
-// --- WORD CONTENT (HTML TO WORD) ---
-?>
+
 <html>
 <head>
     <meta charset="utf-8">
